@@ -5,13 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MedicoModule } from './medico/medico.module';
 import { PacienteModule } from './paciente/paciente.module';
 import { DiagnosticoModule } from './diagnostico/diagnostico.module';
-import { PacienteMedicoService } from './paciente-medico/paciente-medico.service';
 import { MedicoEntity } from './medico/medico.entity';
 import { DiagnosticoEntity } from './diagnostico/diagnostico.entity';
 import { PacienteEntity } from './paciente/paciente.entity';
+import { PacienteMedicoModule } from './paciente-medico/paciente-medico.module';
 
 @Module({
-  imports: [ MedicoModule, DiagnosticoModule, PacienteModule,
+  imports: [ MedicoModule, DiagnosticoModule, PacienteModule, PacienteMedicoModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -30,6 +30,6 @@ import { PacienteEntity } from './paciente/paciente.entity';
     DiagnosticoModule,
   ],
   controllers: [AppController],
-  providers: [AppService, PacienteMedicoService],
+  providers: [AppService],
 })
 export class AppModule {}
