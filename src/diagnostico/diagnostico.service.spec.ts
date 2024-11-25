@@ -28,7 +28,7 @@ describe('DiagnosticoService', () => {
     for (let i = 0; i < 5; i++) {
       const diagnostico: DiagnosticoEntity = await repository.save({
         nombre: faker.science.chemicalElement().name,
-        descripcion: faker.lorem.sentence().substring(0, 200), // Ensure description is within 200 chars
+        descripcion: faker.lorem.sentence().substring(0, 200),
         pacientes: null
       });
       diagnosticosList.push(diagnostico);
@@ -81,7 +81,7 @@ describe('DiagnosticoService', () => {
     const diagnostico: DiagnosticoEntity = {
       id: "",
       nombre: faker.science.chemicalElement().name,
-      descripcion: faker.lorem.paragraphs(3), // Generate a very long description
+      descripcion: faker.lorem.paragraphs(3),
       pacientes: null
     };
 
@@ -120,7 +120,7 @@ describe('DiagnosticoService', () => {
 
   it('update should throw an exception for description longer than 200 characters', async () => {
     const diagnostico: DiagnosticoEntity = diagnosticosList[0];
-    diagnostico.descripcion = faker.lorem.paragraphs(3); // Generate a very long description
+    diagnostico.descripcion = faker.lorem.paragraphs(3);
 
     await expect(() => service.update(diagnostico.id, diagnostico)).rejects.toHaveProperty(
       "message",

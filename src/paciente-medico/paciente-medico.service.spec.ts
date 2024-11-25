@@ -43,7 +43,7 @@ describe('PacienteMedicoService', () => {
     paciente = await pacienteRepository.save({
       nombre: faker.person.firstName(),
       genero: faker.helpers.arrayElement(['M', 'F']),
-      medicos: medicosList.slice(0, 3) // Initialize with 3 doctors
+      medicos: medicosList.slice(0, 3)
     });
   };
 
